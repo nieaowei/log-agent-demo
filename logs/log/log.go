@@ -1,14 +1,13 @@
 /*******************************************************
- *  File        :   kafka.go
+ *  File        :   log.go
  *  Author      :   nieaowei
- *  Date        :   2020/1/25 10:57 下午
+ *  Date        :   2020/1/26 5:43 下午
  *  Notes       :
  *******************************************************/
-package kafka
+package log
 
-import (
-	_ "github.com/Shopify/sarama"
-)
+type Log struct {
+}
 
 func init() {
 
