@@ -10,17 +10,17 @@ import (
 	"github.com/gogf/gf/frame/g"
 )
 
-type Configed interface {
-	LoadConfig()
-}
-
-// ReloadConfig is to reload the configuation of instance that
-// has implemented the interface.
-func ReloadConfig(inst interface{}) {
-	configed := inst.(Configed)
-	configed.LoadConfig()
-	g.Log().Debug("reload config success.")
-}
+//type Configed interface {
+//	LoadConfig()
+//}
+//
+//// ReloadConfig is to reload the configuation of instance that
+//// has implemented the interface.
+//func ReloadConfig(inst interface{}) {
+//	configed := inst.(Configed)
+//	configed.LoadConfig()
+//	g.Log().Debug("reload config success.")
+//}
 
 // ConfigFileInit is to set config file.
 func configFileInit() {

@@ -12,3 +12,7 @@ type Log struct {
 func init() {
 
 }
+
+func o8aao() {
+
+}

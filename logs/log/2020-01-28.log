@@ -1,0 +1,101 @@
+2020-01-28 00:04:43.553 [DEBU] Log and config manager init successed.
+2020-01-28 15:17:29.413 [DEBU] Log and config manager init successed.
+2020-01-28 15:28:07.227 [NOTI] tailf rece msg {"Topic":"default","Text":""}
+2020-01-28 15:28:07.228 [NOTI] tailf send msg {"Topic":"default","Text":""}
+2020-01-28 15:28:23.167 [NOTI] tailf rece msg {"Topic":"default","Text":"}"}
+2020-01-28 15:28:23.167 [NOTI] tailf send msg {"Topic":"default","Text":"}"}
+2020-01-28 15:28:35.292 [NOTI] tailf rece msg {"Topic":"default","Text":""}
+2020-01-28 15:28:35.292 [NOTI] tailf send msg {"Topic":"default","Text":""}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":"/*******************************************************"}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":"/*******************************************************"}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":" *  File        :   log.go"}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":" *  File        :   log.go"}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":" *  Author      :   nieaowei"}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":" *  Author      :   nieaowei"}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":" *  Date        :   2020/1/26 5:43 下午"}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":" *  Date        :   2020/1/26 5:43 下午"}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":" *  Notes       :"}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":" *  Notes       :"}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":" *******************************************************/"}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":" *******************************************************/"}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":"package log"}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":"package log"}
+2020-01-28 15:28:38.582 [NOTI] tailf rece msg {"Topic":"default","Text":""}
+2020-01-28 15:28:38.582 [NOTI] tailf send msg {"Topic":"default","Text":""}
+2020-01-28 15:29:27.841 [DEBU] Log and config manager init successed.
+2020-01-28 15:29:30.627 [NOTI] tailf rece msg {"Topic":"default","Text":"asd"}
+2020-01-28 15:29:30.627 [NOTI] tailf send msg {"Topic":"default","Text":"asd"}
+2020-01-28 15:29:35.443 [NOTI] tailf rece msg {"Topic":"default","Text":"dsa"}
+2020-01-28 15:29:35.443 [NOTI] tailf send msg {"Topic":"default","Text":"dsa"}
+2020-01-28 15:47:10.014 [DEBU] Log and config manager init successed.
+2020-01-28 15:47:10.014 [DEBU] Registered instance : 1
+2020-01-28 15:59:29.842 [DEBU] Log and config manager init successed.
+2020-01-28 15:59:29.842 [DEBU] Registered instance : 1
+2020-01-28 15:59:39.724 [NOTI] tailf rece msg {"Topic":"default","Text":"aa"}
+2020-01-28 15:59:39.724 [NOTI] tailf send msg {"Topic":"default","Text":"aa"}
+2020-01-28 16:00:18.997 [NOTI] tailf rece msg {"Topic":"default","Text":"/*******************************************************"}
+2020-01-28 16:00:18.997 [NOTI] tailf send msg {"Topic":"default","Text":"/*******************************************************"}
+2020-01-28 16:00:18.997 [NOTI] tailf rece msg {"Topic":"default","Text":" *  File        :   log.go"}
+2020-01-28 16:00:18.997 [NOTI] tailf send msg {"Topic":"default","Text":" *  File        :   log.go"}
+2020-01-28 16:00:18.997 [NOTI] tailf rece msg {"Topic":"default","Text":" *  Author      :   nieaowei"}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":" *  Author      :   nieaowei"}
+2020-01-28 16:00:18.998 [NOTI] tailf rece msg {"Topic":"default","Text":" *  Date        :   2020/1/26 5:43 下午"}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":" *  Date        :   2020/1/26 5:43 下午"}
+2020-01-28 16:00:18.998 [NOTI] tailf rece msg {"Topic":"default","Text":" *  Notes       :"}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":" *  Notes       :"}
+2020-01-28 16:00:18.998 [NOTI] tailf rece msg {"Topic":"default","Text":" *******************************************************/"}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":" *******************************************************/"}
+2020-01-28 16:00:18.998 [NOTI] tailf rece msg {"Topic":"default","Text":"package log"}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":"package log"}
+2020-01-28 16:00:18.998 [NOTI] tailf rece msg {"Topic":"default","Text":""}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":""}
+2020-01-28 16:00:18.998 [NOTI] tailf rece msg {"Topic":"default","Text":"type Log struct {"}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":"type Log struct {"}
+2020-01-28 16:00:18.998 [NOTI] tailf rece msg {"Topic":"default","Text":"}"}
+2020-01-28 16:00:18.998 [NOTI] tailf send msg {"Topic":"default","Text":"}"}
+2020-01-28 16:03:26.600 [DEBU] Log and config manager init successed.
+2020-01-28 16:03:26.601 [DEBU] Registered instance : 1
+2020-01-28 16:07:11.994 [DEBU] Log and config manager init successed.
+2020-01-28 16:07:11.994 [DEBU] Log and config manager init successed.
+2020-01-28 17:05:36.075 [DEBU] Log and config manager init successed.
+2020-01-28 17:10:03.556 [DEBU] Log and config manager init successed.
+2020-01-28 17:10:22.855 [DEBU] Log and config manager init successed.
+2020-01-28 17:11:01.703 [DEBU] Log and config manager init successed.
+2020-01-28 17:36:49.640 [DEBU] Log and config manager init successed.
+2020-01-28 17:37:31.542 [DEBU] Log and config manager init successed.
+2020-01-28 17:37:35.139 [DEBU] Log and config manager init successed.
+2020-01-28 17:40:30.958 [DEBU] Log and config manager init successed.
+2020-01-28 17:41:06.020 [DEBU] Log and config manager init successed.
+2020-01-28 17:42:18.374 [DEBU] Log and config manager init successed.
+2020-01-28 17:42:50.426 [WARN] new inst faile.
+2020-01-28 17:42:50.426 [WARN] new inst faile.
+2020-01-28 17:43:04.584 [DEBU] Log and config manager init successed.
+2020-01-28 17:43:48.297 [WARN] new inst faile.
+2020-01-28 17:44:08.139 [WARN] new inst faile.
+2020-01-28 17:46:14.244 [DEBU] Log and config manager init successed.
+2020-01-28 17:46:42.783 [DEBU] Log and config manager init successed.
+2020-01-28 17:47:30.635 [WARN] new inst faile.
+2020-01-28 17:47:34.377 [DEBU] Log and config manager init successed.
+2020-01-28 17:47:47.971 [DEBU] Log and config manager init successed.
+2020-01-28 17:47:47.971 [WARN] new inst faile.
+2020-01-28 17:47:47.971 [WARN] new inst faile.
+2020-01-28 17:48:11.840 [DEBU] Log and config manager init successed.
+2020-01-28 17:49:46.360 [DEBU] Log and config manager init successed.
+2020-01-28 17:49:58.442 [DEBU] Log and config manager init successed.
+2020-01-28 17:50:01.959 [DEBU] Log and config manager init successed.
+2020-01-28 17:50:01.960 [DEBU] Registered instance : 1
+2020-01-28 17:50:01.960 [DEBU] Registered instance : 2
+2020-01-28 17:50:37.887 [NOTI] tailf rece msg {"Topic":"data","Text":"2020-01-25 23:28:58.404 [NOTI] Config init successed."}
+2020-01-28 17:50:37.887 [NOTI] tailf send msg {"Topic":"data","Text":"2020-01-25 23:28:58.404 [NOTI] Config init successed."}
+2020-01-28 17:58:21.547 [DEBU] Log and config manager init successed.
+2020-01-28 17:58:21.547 [DEBU] Registered instance : 1
+2020-01-28 17:58:21.547 [DEBU] Registered instance : 2
+2020-01-28 17:58:29.882 [DEBU] Log and config manager init successed.
+2020-01-28 17:58:29.883 [DEBU] Registered instance : 1
+2020-01-28 17:58:29.883 [DEBU] Registered instance : 2
+2020-01-28 17:59:13.481 [DEBU] Log and config manager init successed.
+2020-01-28 17:59:13.481 [DEBU] Registered instance : 1
+2020-01-28 17:59:13.482 [DEBU] Registered instance : 2
+2020-01-28 17:59:13.482 [DEBU] Registered instance : 3
+2020-01-28 18:10:47.468 [NOTI] tailf rece msg {"Topic":"data","Text":"2020-01-26 21:43:49.274 [DEBU] Log and config manager init successed."}
+2020-01-28 18:10:47.469 [NOTI] tailf send msg {"Topic":"data","Text":"2020-01-26 21:43:49.274 [DEBU] Log and config manager init successed."}

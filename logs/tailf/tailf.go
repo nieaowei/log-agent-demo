@@ -7,50 +7,60 @@
 package tailf
 
 import (
-	"fmt"
+	"errors"
 	"github.com/gogf/gf/frame/g"
 	"github.com/hpcloud/tail"
-	"os"
-	"strings"
+	"log-agent-demo/instance"
 )
 
-type InstManager struct {
-	Insts []*TailfInst
-}
+//type InstManager struct {
+//	Insts []*TailfInst
+//}
 
 type TailfInst struct {
 	Name string
 	*tail.Tail
+	ch chan *instance.Message
 }
 
-var InstMgr *InstManager = &InstManager{}
+//var InstMgr *InstManager = &InstManager{}
 
-func init() {
-	path := g.Cfg().GetString("tailf.path")
-	suffix := g.Cfg().GetString("tailf.suffix")
-	files, err := os.Open(path)
-	if err != nil || files == nil {
-		g.Log().Fatal("scan log file failed.")
-	}
-	filesNames, err := files.Readdirnames(0)
-	if err != nil {
-		g.Log().Fatal("scan log file failed.")
-	}
-	for _, fileName := range filesNames {
-		if strings.HasSuffix(fileName, suffix) {
-			tailfInst, err := NewTailfInst(path+"/"+fileName, defaultConfig())
-			if err != nil {
-				g.Log().Warning("new inst faile.")
-				continue
-			}
-			InstMgr.Insts = append(InstMgr.Insts, &tailfInst)
-		}
-	}
-}
+//func init() {
+//	path := g.Cfg().GetString("tailf.path")
+//	suffix := g.Cfg().GetString("tailf.suffix")
+//
+//	files, err := ioutil.ReadDir(path)
+//	if err != nil {
+//		g.Log().Fatal("scan log file failed.")
+//	}
+//
+//	for _, file := range files {
+//		if file.IsDir() {
+//			files1, err := ioutil.ReadDir(filepath.Join(path, "/", file.Name()))
+//			if err != nil {
+//				continue
+//			}
+//			for _, file1 := range files1 {
+//				if strings.HasSuffix(file1.Name(), suffix) {
+//					tailfInst, err := NewTailfInst(path+"/"+file1.Name(), DefaultConfig())
+//					if err != nil {
+//						g.Log().Warning("new inst faile.")
+//						continue
+//					}
+//					tailfInst.Name = file.Name()
+//					InstMgr.Insts = append(InstMgr.Insts, &tailfInst)
+//				}
+//			}
+//		}
+//	}
+//}
 
-func defaultConfig() (config tail.Config) {
+func DefaultConfig() (config tail.Config) {
 	return tail.Config{
-		Location:    nil,
+		Location: &tail.SeekInfo{
+			Offset: 0,
+			Whence: 2,
+		},
 		ReOpen:      true,
 		MustExist:   true,
 		Poll:        true,
@@ -62,18 +72,32 @@ func defaultConfig() (config tail.Config) {
 	}
 }
 
-func NewTailfInst(fileName string, config tail.Config) (inst TailfInst, err error) {
+func NewTailfInst(fileName string, config tail.Config) (inst *TailfInst, err error) {
+	inst = &TailfInst{}
 	inst.Tail, err = tail.TailFile(fileName, config)
 	if err != nil {
 		return
 	}
+	inst.Name = "default"
+	inst.ch = make(chan *instance.Message, 10)
 	return
 }
 
-func (p *InstManager) LoadConfig() {
-	for _, inst := range p.Insts {
-		inst.LoadConfig()
+//func (p *InstManager) LoadConfig() {
+//	for _, inst := range p.Insts {
+//		inst.LoadConfig()
+//	}
+//}
+
+func NewInstance(fileName string, config tail.Config) (inst instance.Instance, err error) {
+	inst1 := &TailfInst{}
+	inst1.Tail, err = tail.TailFile(fileName, config)
+	if err != nil {
+		return
 	}
+	inst1.Name = "default"
+	inst1.ch = make(chan *instance.Message, 10)
+	return inst1, nil
 }
 
 func (p *TailfInst) LoadConfig() {
@@ -85,11 +109,33 @@ func (p *TailfInst) LoadConfig() {
 	p.MaxLineSize = g.Cfg().GetInt("tailf.MaxLineSize")
 }
 
-func (p *TailfInst) Run() {
-	go func() {
-		for {
-			line := <-p.Lines
-			fmt.Println(line.Text)
+func (p *TailfInst) SendMsg(msg *instance.Message) {
+	g.Log().Notice("tailf send msg", msg)
+	p.ch <- msg
+	return
+}
+
+func (p *TailfInst) ReceMsg() (msg *instance.Message, err error) {
+	line, ok := <-p.Lines
+	if !ok {
+		g.Log().Notice(p.Filename + "channel closed.")
+		return nil, errors.New("channel closed")
+	}
+	msg = &instance.Message{
+		Topic: p.Name,
+		Text:  line.Text,
+	}
+	g.Log().Notice("tailf rece msg", msg)
+	return
+}
+
+func (p *TailfInst) Exce() {
+	for {
+		msg, err := p.ReceMsg()
+		if err != nil {
+			g.Log().Warning(err)
+			break
 		}
-	}()
+		p.SendMsg(msg)
+	}
 }
