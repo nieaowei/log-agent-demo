@@ -10,7 +10,7 @@ import (
 	"errors"
 	"github.com/Shopify/sarama"
 	"github.com/gogf/gf/frame/g"
-	"log-agent-demo/instance"
+	"log-agent-demo/logs/instance"
 )
 
 type KafkaInst struct {
@@ -22,23 +22,19 @@ func init() {
 
 }
 
+func (p *KafkaInst) GetMsgChan() (ch chan *instance.Message) {
+	ch = p.ch
+	return
+}
+
 func NewKafkaInst(server string, config *sarama.Config) (inst *KafkaInst, err error) {
 	inst = &KafkaInst{}
 	inst.SyncProducer, err = sarama.NewSyncProducer([]string{server}, config)
 	if err != nil {
 		return
 	}
+	inst.ch = make(chan *instance.Message, 10)
 	return
-}
-
-func (p *KafkaInst) Exce() {
-	for {
-		msg, err := p.ReceMsg()
-		if err != nil {
-			break
-		}
-		p.SendMsg(msg)
-	}
 }
 
 func (p *KafkaInst) LoadConfig() {
@@ -53,7 +49,7 @@ func (p *KafkaInst) SendMsg(msg *instance.Message) {
 	if err != nil {
 		return
 	}
-	g.Log().Info("kafka:", pid, offet)
+	g.Log().Debug("kafka:", pid, offet)
 }
 
 func (p *KafkaInst) ReceMsg() (msg *instance.Message, err error) {
@@ -70,4 +66,8 @@ func DefaultConfig() *sarama.Config {
 	saramaCfg.Producer.Partitioner = sarama.NewRandomPartitioner
 	saramaCfg.Producer.Return.Successes = true
 	return saramaCfg
+}
+
+func (p *KafkaInst) BindChan(msgCh chan *instance.Message) {
+	p.ch = msgCh
 }

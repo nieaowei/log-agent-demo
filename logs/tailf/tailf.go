@@ -10,7 +10,7 @@ import (
 	"errors"
 	"github.com/gogf/gf/frame/g"
 	"github.com/hpcloud/tail"
-	"log-agent-demo/instance"
+	"log-agent-demo/logs/instance"
 )
 
 //type InstManager struct {
@@ -110,7 +110,7 @@ func (p *TailfInst) LoadConfig() {
 }
 
 func (p *TailfInst) SendMsg(msg *instance.Message) {
-	g.Log().Notice("tailf send msg", msg)
+	g.Log().Debug("tailf send msg", msg)
 	p.ch <- msg
 	return
 }
@@ -125,17 +125,10 @@ func (p *TailfInst) ReceMsg() (msg *instance.Message, err error) {
 		Topic: p.Name,
 		Text:  line.Text,
 	}
-	g.Log().Notice("tailf rece msg", msg)
+	g.Log().Debug("tailf rece msg", msg)
 	return
 }
 
-func (p *TailfInst) Exce() {
-	for {
-		msg, err := p.ReceMsg()
-		if err != nil {
-			g.Log().Warning(err)
-			break
-		}
-		p.SendMsg(msg)
-	}
+func (p *TailfInst) BindChan(msgCh chan *instance.Message) {
+	p.ch = msgCh
 }

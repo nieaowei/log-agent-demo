@@ -13,10 +13,15 @@ import "github.com/gogf/gf/frame/g"
 // Other instances that have implemented the interface
 // can be uniformly scheduled by the instance manager.
 type Instance interface {
-	Exce()
 	LoadConfig()
 	SendMsg(msg *Message)
 	ReceMsg() (msg *Message, err error)
+	BindChan(msgCh chan *Message)
+}
+
+type InstanceManager interface {
+	RunAll()
+	Register(inst Instance)
 }
 
 // Common communication protocol.
@@ -31,11 +36,7 @@ type instMgr struct {
 	Number int
 }
 
-type InstanceManager interface {
-	RunAll()
-	Register(inst Instance)
-}
-
+// default Instance manager.
 var InstMgr *instMgr = &instMgr{}
 
 func (p *instMgr) Register(inst Instance) {
@@ -46,7 +47,18 @@ func (p *instMgr) Register(inst Instance) {
 
 func (p *instMgr) RunAll() {
 	for _, inst := range p.insts {
-		go inst.Exce()
+		go p.Exce(inst)
+	}
+}
+
+func (p *instMgr) Exce(inst Instance) {
+	for {
+		msg, err := inst.ReceMsg()
+		if err != nil {
+			g.Log().Warning(err)
+			break
+		}
+		inst.SendMsg(msg)
 	}
 }
 
